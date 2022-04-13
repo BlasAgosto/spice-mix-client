@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Spice Mixer</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,52 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Spice Mix!</h1>
+
+      <div class="pop">
+        <h3 id="signUpH3">Sign Up</h3>
+        <form id="sign-up-form">
+          <input name="credentials[email]" type="email" placeholder="Email">
+          <input name="credentials[password]" type="password" placeholder="Enter password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="Enter password again">
+          <button type="submit">Sign Up</button>
+        </form>
+      
+        <h3 id="signInH3">Sign In</h3>
+        <form id="sign-in-form">
+          <input name="credentials[email]" type="email" placeholder="Email">
+          <input name="credentials[password]" type="password" placeholder="Enter password">
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
+      
+      <div id="inside" class="popTwo" style="display:block">
+      
+        <h3 id="change" style="display:block">Change Password</h3>
+        <form id="change-password-form" style="display:block">
+          <input name="passwords[old]" type="password" placeholder="Enter old password">
+          <input name="passwords[new]" type="password" placeholder="Enter new password">
+          <button id="changePWB" type="submit">Change Password</button>
+        </form>
+      
+        <h3 id="sign-out" style="display:block">Sign Out</h3>
+        <button id="sign-out-button" style="display:block">Sign Out</button>
+
+      <div class="fade-out" id="auth-display"></div>
+      </div>
+
+        <h3 id="spice-list">Spice List</h3>
+        <form id="spice-name" style="display:block">
+          <input name="name" type="text" placeholder="Name your SPICE">
+          <input class="hue" name="impact" type="text" placeholder="What do I do to your food?" size="30">
+          <button id="addSpice" type="submit">oooo that's <br> SPICY!</button>
+        </form>
+        <div id="spiceRack" class="rack"><p class="pee">I will hold all your spices</p></div>
+      
+        <div class="delete-me-later">
+          Email: 1@1asdfg33.com
+          pass: 1
+        </div>
     </body>
+
 </html>

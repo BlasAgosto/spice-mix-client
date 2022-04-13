@@ -1,1 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
+
+.rack {
+    text-align: center;
+    border: 2px solid black;
+    width: 75%;
+    height: 500px;
+}
+
+.pee {
+    color: pink;
+    position: relative;
+    top: 25px;
+}
