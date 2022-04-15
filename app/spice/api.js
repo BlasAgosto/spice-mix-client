@@ -47,15 +47,52 @@ const newSpice = function (data) {
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    // this allows for params to request as req.body.SPICE!.owner
-    // .spice is pretty much uselsess here. look into that.
     data: { spice: data }
   })
 }
+// THIS IS THE API CALL to the API ....apparently this entirely file is.
+//  look into that...
+const index = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/spice-mix',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const destroy = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/spice-mix/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const update = function (id, data) {
+  console.log(id, data)
+  return $.ajax({
+    url: config.apiUrl + '/spice-mix/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: { spice: data }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  newSpice
+  newSpice,
+  index,
+  destroy,
+  update
+
+  // spiceDex
 }

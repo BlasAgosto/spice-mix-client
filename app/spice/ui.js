@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const authUi = require('./ui')
 
 const onSignUpSuccess = function () {
   $('#auth-display').html('<p>User signed up successfully</p>')
@@ -14,16 +15,10 @@ const onSignUpFailure = function () {
 
 const onSignInSuccess = function (response) {
   $('#auth-display').html('<p>User signed in successfully</p>')
-
-  // reset all forms
   $('form').trigger('reset')
 
-  console.log(response)
-  // store data from the response in my store object
   store.user = response.user
   console.log(store)
-  // reset single form
-  // $('#sign-in-form').trigger('reset')
 }
 
 const onSignInFailure = function () {
@@ -55,6 +50,47 @@ const onSpiceAddSuccess = function () {
 const onSpiceAddFailure = function () {
   $('#auth-display').html('<p>Bad! No sauce for you!</p>')
 }
+
+const onIndexSuccess = function (response) {
+  // $('.dumb').show()
+  const spooces = response.spice_list
+  console.log(response.spice_list)
+
+  let spiceHtml = ''
+
+  spooces.forEach(spice_list => {
+    // console.log(spice_list)
+    spiceHtml += `
+    <div 
+      <div> 
+        Spice Name: ${spice_list.name} <br>Impact: ${spice_list.impact}
+      </div>
+          <button data-id=${spice_list._id} class="oh">Del</button>
+  
+     <form class="my" data-id=${spice_list._id} style="display:block">
+      <input name="name" type="text" placeholder="Name your SPICE">
+      <input class="hue" name="impact" type="text" placeholder="What do I do to your food?" size="30">
+      <button type="submit" data-id=${spice_list._id} >Up-d</button>
+        </form>
+    </div>
+    `
+  })
+  $('#dumber').html(spiceHtml)
+  // can I do an .this('click').remove()
+}
+
+const onIndexFailure = function () {
+  $('#auth-display').html('<p>Failure!</p>')
+}
+
+const onDestroySuccess = function () {
+  $('#auth-display').html('<p>successfully deleted your spooce of choice</p>')
+  console.log('hai')
+}
+const onDestroyFailure = function () {
+  $('#auth-display').html('<p>Spice was NOT deleted, try again</p>')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -65,5 +101,20 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onSpiceAddSuccess,
-  onSpiceAddFailure
+  onSpiceAddFailure,
+  onIndexSuccess,
+  onIndexFailure,
+  // onDestroy,
+  onDestroySuccess,
+  onDestroyFailure
+  // onUpdateSuccess
 }
+
+/* failures
+// const onDestroy = function () {
+//   console.log('hai')
+//   onDestroy()
+
+// $('.oh').on('click', authUi.destroy)
+// }
+*/
