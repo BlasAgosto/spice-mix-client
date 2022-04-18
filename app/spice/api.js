@@ -83,7 +83,15 @@ const update = function (id, data) {
     data: { spice: data }
   })
 }
-
+const show = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/spice-mix/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,
@@ -92,7 +100,8 @@ module.exports = {
   newSpice,
   index,
   destroy,
-  update
+  update,
+  show
 
   // spiceDex
 }

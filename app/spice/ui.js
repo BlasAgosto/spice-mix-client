@@ -45,6 +45,7 @@ const onSignOutFailure = function () {
 
 const onSpiceAddSuccess = function () {
   $('#auth-display').html('<p>Sauce added! You spicy-boi</p>')
+  $('form').trigger('reset')
 }
 
 const onSpiceAddFailure = function () {
@@ -52,7 +53,7 @@ const onSpiceAddFailure = function () {
 }
 
 const onIndexSuccess = function (response) {
-  // $('.dumb').show()
+  $('#auth-display').html('<p>Show me the spooces!</p>')
   const spooces = response.spice_list
   console.log(response.spice_list)
 
@@ -61,7 +62,7 @@ const onIndexSuccess = function (response) {
   spooces.forEach(spice_list => {
     // console.log(spice_list)
     spiceHtml += `
-    <div 
+    <div id="innerSpooce" class="innerSpooceTwo">
       <div> 
         Spice Name: ${spice_list.name} <br>Impact: ${spice_list.impact}
       </div>
@@ -72,6 +73,7 @@ const onIndexSuccess = function (response) {
       <input class="hue" name="impact" type="text" placeholder="What do I do to your food?" size="30">
       <button type="submit" data-id=${spice_list._id} >Up-d</button>
         </form>
+    </div>
     </div>
     `
   })
@@ -90,7 +92,54 @@ const onDestroySuccess = function () {
 const onDestroyFailure = function () {
   $('#auth-display').html('<p>Spice was NOT deleted, try again</p>')
 }
+const onDoingAThing = function (response) {
+  const spooces = response.spice_list
+  console.log(response.spice_list)
 
+  let spiceHtml = ''
+
+  spooces.forEach((spice_list) => {
+    // console.log(spice_list)
+    spiceHtml += `
+    <div id="innerSpooce" class="innerSpooceTwo">
+      <div> 
+        Spice Name: ${spice_list.name} <br>Impact: ${spice_list.impact}
+      </div>
+          <button data-id=${spice_list._id} class="oh">Del</button>
+  
+     <form class="my" data-id=${spice_list._id} style="display:block">
+      <input name="name" type="text" placeholder="Name your SPICE">
+      <input class="hue" name="impact" type="text" placeholder="What do I do to your food?" size="30">
+      <button type="submit" data-id=${spice_list._id} >Up-d</button>
+        </form>
+    </div>
+    </div>
+    `
+  })
+  $('#dumber').html(spiceHtml)
+  // can I do an .this('click').remove()
+}
+const onShowSuccess = function (response) {
+  $('#auth-display').html('<p>Your most recent spooce, your spoocyness</p>')
+  let spooces = response.spice_list
+  let lastSpooce = spooces.pop()
+  console.log(lastSpooce)
+
+  let spiceHtml = ''
+
+  spooces.forEach(spice_list => {
+    // console.log(spice_list)
+    spiceHtml += `
+    <div id="innerSpooce" class="innerSpooceTwo">
+      <div> 
+        Spice Name: ${spice_list.name} <br>Impact: ${spice_list.impact}
+      </div>
+    </div>
+    </div>
+    `
+  })
+  $('#dumber').html(spiceHtml)
+}
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -106,8 +155,10 @@ module.exports = {
   onIndexFailure,
   // onDestroy,
   onDestroySuccess,
-  onDestroyFailure
+  onDestroyFailure,
   // onUpdateSuccess
+  onDoingAThing,
+  onShowSuccess
 }
 
 /* failures

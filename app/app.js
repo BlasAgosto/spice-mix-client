@@ -16,11 +16,9 @@ $(() => {
   $('#showSpice').on('click', authEvents.onIndex)
   $('#dumber').on('click', '.oh', authEvents.onDestroy)
   $('#dumber').on('submit', '.my', authEvents.onUpdate)
-
-  // $('#showSpice').on('click', console.log(authEvents.onIndex()))
-  // $('.dumb').on('click', onClick)
 })
-
+// $('#showSpice').on('click', console.log(authEvents.onIndex()))
+// $('.dumb').on('click', onClick)
 // const newSpooce = function () {
 //   $('#showSpice').on('click', authEvents.onIndex)
 // }
