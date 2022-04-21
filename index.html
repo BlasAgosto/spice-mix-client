@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Spice Mixer</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+
+     <div id="curl">
+      <svg viewBox="0 0 700 100">
+        <path id="curve" fill="transparent" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
+        <text width="500">
+          <textPath xlink:href="#curve">
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp S &nbsp&nbsp P &nbsp&nbsp I &nbsp&nbsp C &nbsp&nbsp E &nbsp&nbsp&nbsp&nbsp&nbsp M &nbsp&nbsp I &nbsp&nbsp X 
+          </textPath>
+        </text>
+      </svg>
+    </div>
+    
+      <div id="popMain" class="pop">
+        <h3 id="signUpH3">Sign Up</h3>
+        <form id="sign-up-form">
+          <input name="credentials[email]" type="email" placeholder="Email">
+          <input name="credentials[password]" type="password" placeholder="Enter password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="Enter password again">
+          <button type="submit">Sign Up</button>
+        </form>
+      
+        <h3 id="signInH3">Sign In</h3>
+        <form id="sign-in-form">
+          <input name="credentials[email]" type="email" placeholder="Email">
+          <input name="credentials[password]" type="password" placeholder="Enter password">
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
+      
+      <div class="fade-out" id="auth-display">Hue hue hue!</div>
+
+      <div id="inside" class="popTwo" style="display:block;display:none">
+      
+        <h3 id="change" style="display:block">Change Password</h3>
+        <form id="change-password-form" style="display:block">
+          <input name="passwords[old]" type="password" placeholder="Enter old password">
+          <input name="passwords[new]" type="password" placeholder="Enter new password">
+          <button id="changePWB" type="submit">Change Password</button>
+        </form>
+      
+        <h3 id="sign-out" style="display:block">Sign Out</h3>
+        <button id="sign-out-button" style="display:block">Sign Out</button>
+
+      <!-- <div class="fade-out" id="auth-display"></div> -->
+      
+
+        <h3 style="display:none" id="spice-list">Spice List</h3>
+        <form  id="spice-name" style="display:block;display:none">
+          <input name="name" type="text" placeholder="Name your SPICE">
+          <input class="hue" name="impact" type="text" placeholder="What do I do to your food?" size="30">
+          <button id="addSpice" type="submit">Add new <br> SPOOCE!</button>
+        </form>
+
+        <div style="display:none" id="spiceRack" class="rack"><p class="pan"></p><button id="showSpice" type="submit">Show me the spooces!</button>
+        <br>
+        <br>
+        
+      
+        <div style="display:none" id="dumber"></div>
+        </div>
+      </div>
+    </body>
+
+</html>

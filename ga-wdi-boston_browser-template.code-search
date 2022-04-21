@@ -1,0 +1,23 @@
+# Query: ga-wdi-boston.browser-template
+# ContextLines: 1
+
+4 results - 3 files
+
+package-lock.json:
+  1  {
+  2:   "name": "spice-mix-client",
+  3    "version": "0.0.3",
+
+  7      "": {
+  8:       "name": "spice-mix-client",
+  9        "version": "0.0.3",
+
+package.json:
+  1  {
+  2:   "name": "spice-mix-client",
+  3    "version": "0.0.3",
+
+README.md:
+  18  1. Empty [`README.md`](README.md) and fill with your own content.
+  19: 1. Replace all instances of `spice-mix-client` with the name of
+  20      your project.

@@ -1,0 +1,87 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    background-color: purple;
+}
+svg {
+    position: relative;
+    left: 15%;
+}
+text {
+    font-size: 25px;
+    fill: #f39ae6;
+}
+.rack {
+    text-align: center;
+    border: 2px solid black;
+    width: 75%;
+    height: 500px;
+}
+
+.pan {
+    color: pink;
+    position: relative;
+    top: 15px;
+}
+
+.dumb {
+    text-align: left;
+}
+
+.pop {
+    height: 90%;
+    width: 600px;
+    padding: 15px;
+    position: relative;
+    top: 250px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.pop h3 {
+    color: pink;
+    text-transform: uppercase;
+    font-weight: 350;
+}
+.pop input[type=email],
+.pop input[type=password] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 3px solid hotpink;
+    padding: 14px 10px;
+    width: 220px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25px;
+}
+
+.pop input[type=email]:focus,
+.pop input[type=password]:focus {
+    width: 270px;
+    border-color: hotpink;
+}
+
+.pop button[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 3px solid hotpink;
+    padding: 14px 35px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25px;
+    cursor: pointer;
+}
+
+#auth-display {
+    position: relative;
+    bottom: 95px;
+    left: 47%;
+}
