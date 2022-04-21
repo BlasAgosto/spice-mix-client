@@ -2,11 +2,29 @@
 
 const store = require('../store.js')
 const authUi = require('./ui')
+// const events = require('./event')
+
+function nextPage () {
+  const element = document.getElementById('popMain')
+  element.style.display = 'none'
+  const elementOne = document.getElementById('inside')
+  elementOne.style.display = 'block'
+  const elementTwo = document.getElementById('spice-list')
+  elementTwo.style.display = 'block'
+  const elementThree = document.getElementById('spice-name')
+  elementThree.style.display = 'block'
+  const elementFour = document.getElementById('spiceRack')
+  elementFour.style.display = 'block'
+  const elementFive = document.getElementById('showSpice')
+  elementFive.style.display = 'block'
+  const elementSix = document.getElementById('dumber')
+  elementSix.style.display = 'block'
+}
 
 const onSignUpSuccess = function () {
   $('#auth-display').html('<p>User signed up successfully</p>')
-
   $('form').trigger('reset')
+  nextPage()
 }
 
 const onSignUpFailure = function () {
@@ -121,8 +139,8 @@ const onDoingAThing = function (response) {
 }
 const onShowSuccess = function (response) {
   $('#auth-display').html('<p>Your most recent spooce, your spoocyness</p>')
-  let spooces = response.spice_list
-  let lastSpooce = spooces.pop()
+  const spooces = response.spice_list
+  const lastSpooce = spooces.pop()
   console.log(lastSpooce)
 
   let spiceHtml = ''

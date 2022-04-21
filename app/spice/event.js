@@ -29,7 +29,7 @@ const onSignIn = function (event) {
   authApi
     .signIn(data)
     .then((response) => authUi.onSignInSuccess(response))
-    .then(nextPage())
+    // .then(nextPage())
     .catch(() => authUi.onSignInFailure())
 }
 
@@ -145,22 +145,22 @@ const onUpdate = function (event) {
   // .then())
 }
 
-function nextPage () {
-  const element = document.getElementById('popMain')
-  element.style.display = 'none'
-  const elementOne = document.getElementById('inside')
-  elementOne.style.display = 'block'
-  const elementTwo = document.getElementById('spice-list')
-  elementTwo.style.display = 'block'
-  const elementThree = document.getElementById('spice-name')
-  elementThree.style.display = 'block'
-  const elementFour = document.getElementById('spiceRack')
-  elementFour.style.display = 'block'
-  const elementFive = document.getElementById('showSpice')
-  elementFive.style.display = 'block'
-  const elementSix = document.getElementById('dumber')
-  elementSix.style.display = 'block'
-}
+// function nextPage () {
+//   const element = document.getElementById('popMain')
+//   element.style.display = 'none'
+//   const elementOne = document.getElementById('inside')
+//   elementOne.style.display = 'block'
+//   const elementTwo = document.getElementById('spice-list')
+//   elementTwo.style.display = 'block'
+//   const elementThree = document.getElementById('spice-name')
+//   elementThree.style.display = 'block'
+//   const elementFour = document.getElementById('spiceRack')
+//   elementFour.style.display = 'block'
+//   const elementFive = document.getElementById('showSpice')
+//   elementFive.style.display = 'block'
+//   const elementSix = document.getElementById('dumber')
+//   elementSix.style.display = 'block'
+// }
 
 function signOutBois () {
   const element = document.getElementById('popMain')
