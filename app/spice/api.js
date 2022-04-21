@@ -73,7 +73,7 @@ const destroy = function (id) {
 }
 
 const update = function (id, data) {
-  console.log(id, data)
+  // console.log(id, data)
   return $.ajax({
     url: config.apiUrl + '/spice-mix/' + id,
     method: 'PATCH',

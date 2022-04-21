@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
-const authUi = require('./ui')
+// const authUi = require('./ui')
 // const events = require('./event')
 
 function nextPage () {
@@ -21,10 +21,19 @@ function nextPage () {
   elementSix.style.display = 'block'
 }
 
+const onUpDateSuccess = function () {
+  $('#auth-display').html('<p>Your Spooce! Has been changed...</p>')
+  $('form').trigger('reset')
+}
+
+const onUpDateFailure = function () {
+  $('#auth-display').html('<p>Nooooo updated spooce for you!</p>')
+}
+
 const onSignUpSuccess = function () {
   $('#auth-display').html('<p>User signed up successfully</p>')
   $('form').trigger('reset')
-  nextPage()
+  // nextPage()
 }
 
 const onSignUpFailure = function () {
@@ -34,9 +43,10 @@ const onSignUpFailure = function () {
 const onSignInSuccess = function (response) {
   $('#auth-display').html('<p>User signed in successfully</p>')
   $('form').trigger('reset')
+  nextPage()
 
   store.user = response.user
-  console.log(store)
+  // console.log(store)
 }
 
 const onSignInFailure = function () {
@@ -73,7 +83,7 @@ const onSpiceAddFailure = function () {
 const onIndexSuccess = function (response) {
   $('#auth-display').html('<p>Show me the spooces!</p>')
   const spooces = response.spice_list
-  console.log(response.spice_list)
+  // console.log(response.spice_list)
 
   let spiceHtml = ''
 
@@ -105,14 +115,14 @@ const onIndexFailure = function () {
 
 const onDestroySuccess = function () {
   $('#auth-display').html('<p>successfully deleted your spooce of choice</p>')
-  console.log('hai')
+  // console.log('hai')
 }
 const onDestroyFailure = function () {
   $('#auth-display').html('<p>Spice was NOT deleted, try again</p>')
 }
 const onDoingAThing = function (response) {
   const spooces = response.spice_list
-  console.log(response.spice_list)
+  // console.log(response.spice_list)
 
   let spiceHtml = ''
 
@@ -141,7 +151,7 @@ const onShowSuccess = function (response) {
   $('#auth-display').html('<p>Your most recent spooce, your spoocyness</p>')
   const spooces = response.spice_list
   const lastSpooce = spooces.pop()
-  console.log(lastSpooce)
+  // console.log(lastSpooce)
 
   let spiceHtml = ''
 
@@ -176,7 +186,9 @@ module.exports = {
   onDestroyFailure,
   // onUpdateSuccess
   onDoingAThing,
-  onShowSuccess
+  onShowSuccess,
+  onUpDateSuccess,
+  onUpDateFailure
 }
 
 /* failures

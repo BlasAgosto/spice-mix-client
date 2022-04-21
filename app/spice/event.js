@@ -7,10 +7,10 @@ const getFormFields = require('../../lib/get-form-fields.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('signing up')
+  // console.log('signing up')
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  // console.log(data)
 
   authApi
     .signUp(data)
@@ -20,16 +20,16 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('signing in')
+  // console.log('signing in')
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  // console.log(data)
 
   authApi
     .signIn(data)
     .then((response) => authUi.onSignInSuccess(response))
-    // .then(nextPage())
+  // .then(nextPage())
     .catch(() => authUi.onSignInFailure())
 }
 
@@ -38,7 +38,7 @@ const onChangePassword = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  // console.log(data)
 
   authApi
     .changePassword(data)
@@ -47,7 +47,7 @@ const onChangePassword = function (event) {
 }
 
 const onSignOut = function () {
-  console.log('trying to sign out')
+  // console.log('trying to sign out')
   authApi
     .signOut()
     .then(() => authUi.onSignOutSuccess())
@@ -57,11 +57,11 @@ const onSignOut = function () {
 
 const onSpiceAdd = function (event) {
   event.preventDefault()
-  console.log('Making spooces for yoUwU')
+  // console.log('Making spooces for yoUwU')
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  // console.log(data)
 
   authApi
     .newSpice(data)
@@ -71,13 +71,13 @@ const onSpiceAdd = function (event) {
 }
 const onShowBook = function (event) {
   event.preventDefault()
-  console.log("Here's your most recent spooce")
+  // console.log("Here's your most recent spooce")
 
   authApi
     .show()
 
     .then((response) => {
-      console.log(response)
+      // console.log(response)
       return response
     })
     .then((response) => authUi.onShowSuccess(response))
@@ -87,7 +87,7 @@ const onShowBook = function (event) {
 }
 const onIndex = function (event) {
   event.preventDefault()
-  console.log('Let me see what we have here...')
+  // console.log('Let me see what we have here...')
   // start of promise chain. this function gets info from the thing. start next call
   authApi
     .index()
@@ -122,7 +122,7 @@ const onDoingStoof = function () {
 }
 const onDestroy = function (event) {
   event.preventDefault()
-  console.log($(event.target))
+  // console.log($(event.target))
   authApi
     .destroy($(event.target).data('id'))
 
@@ -135,12 +135,13 @@ const onDestroy = function (event) {
 const onUpdate = function (event) {
   const data = getFormFields(event.target)
   event.preventDefault()
-  console.log('hue')
+  // console.log('hue')
 
   authApi
     .update($(event.target).data('id'), data)
-    .then(console.log('huehue'))
-    .catch((error) => console.log(error))
+  // .then(console.log('huehue'))
+    .then(authUi.onUpDateSuccess)
+    .catch(() => authUi.onUpDateFailure())
   // authApi.update($(event.target).data('id'))
   // .then())
 }
