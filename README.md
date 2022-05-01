@@ -13,9 +13,9 @@ To access this app online click here (link pending)
 
 Planning for this app:
 
-front end wireframe (link here)
-back end wireframe (link here)
-ERD (link here)
+front end wireframe [(link here)](https://imgur.com/PjTy7KB)
+back end wireframe [(Link here)](https://i.imgur.com/RFvXNWh.jpeg)
+ERD (link here)[(link here)](https://i.imgur.com/TUaaMgK.jpeg)
 
 User stories
 * user will be able to add their current list of spices 
