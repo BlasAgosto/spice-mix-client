@@ -9,7 +9,8 @@ Further iterations will allow
 * spice ratios
 * mixing of spices 
 
-To access this app online click here (link pending)
+* To access this app online [click here](https://blasagosto.github.io/spice-mix-client/)
+* To access this API online [click here ](https://serene-journey-89438.herokuapp.com)
 
 Planning for this app:
 
